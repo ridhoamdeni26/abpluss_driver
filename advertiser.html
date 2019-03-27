@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="static/assets/build/images/logoAB.png" type="image/ico" />
+
+    <title>ABPluss Car</title>
+    <!-- Bootstrap -->
+    <link href="static/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <!-- datatables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.2.7/css/select.dataTables.min.css">
+    <!-- Font Awesome -->
+    <link href="static/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="static/assets/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- jQuery custom content scroller -->
+    <link href="static/assets/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css"
+        rel="stylesheet" />
+    <!-- iCheck -->
+    <link href="static/assets/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="static/assets/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- bootstrap-datetimepicker -->
+    <link href="static/assets/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="static/assets/build/css/custom.min.css" rel="stylesheet">
+    <!-- images custom -->
+    <link href="static/assets/build/css/images.css" rel="stylesheet">
+    <!-- Loading custom -->
+    <link href="static/assets/loading/loading.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <style type="text/css">
+        img:hover {
+            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+        }
+
+        #image-preview-picture {
+            display: none;
+            width: auto;
+            height: 300px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col menu_fixed">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="static/App/index" class="site_title"><img src="static/assets/build/images/logoAB.png"
+                                width="70px" height="auto" alt="logo.png"></img><span>ABPluss Car</span></a>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <br />
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <ul class="nav side-menu">
+                                <li><a href="static/Advertisement/index"><i class="fa fa-money"></i> Advertisement </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /sidebar menu -->
+                </div>
+            </div>
+
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="">
+                    <div class="page-title">
+                        <div class="title_left">
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Advertisement</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                            aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Settings 1</a></li>
+                                            <li><a href="#">Settings 2</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a></li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+
+                                <div class="form-group">
+                                    <div align="right" class="col-md-12 col-sm-12 col-xs-12">
+                                        <div id="gender" class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-default active" data-toggle-class="btn-primary"
+                                                data-toggle-passive-class="btn-default">
+                                                <input id="mobil" onchange="changeVehicleType(this.id)" type="radio"
+                                                    name="vehicle_type" value="mobil"><i class="fa fa-automobile">
+                                                    &nbsp; Mobil &nbsp; </i>
+                                            </label>
+                                            <label class="btn btn-default" data-toggle-class="btn-primary"
+                                                data-toggle-passive-class="btn-default">
+                                                <input id="motor" onchange="changeVehicleType(this.id)" type="radio"
+                                                    name="vehicle_type" value="motor"><i class="fa fa-motorcycle">
+                                                    &nbsp; Motor &nbsp;
+                                                </i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <br>
+
+                                <form action="#" method="post" id="demo-form" data-parsley-validate>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Nama Perusahaan</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" id="nama_perusahaan" name="nama_perusahaan"
+                                                required="required" placeholder="Mohon Isi Nama Perusahaan"
+                                                class="input_place form-control">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Brand</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" id="brand" name="brand" required="required"
+                                                class="input_place form-control" placeholder="Mohon Isi Nama Brand">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Nama PIC</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" id="pic" name="pic" required="required"
+                                                class="input_place form-control" placeholder="Mohon Isi Nama PIC">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Nomor Telepon</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="number" id="no_tlepon" name="no_tlepon" required="required"
+                                                class="input_place form-control" placeholder="Mohon Isi Nomor Telepon">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="email" id="email" name="email" required="required"
+                                                class="input_place form-control" placeholder="Mohon Isi Email">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <br>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipe GPS</label>
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <div class="radio" style="padding-right: 45px">
+                                                <label>
+                                                    <input type="radio" name="gps_type"> GPS Car
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <div class="radio" style="padding-right: 45px">
+                                                <label>
+                                                    <input type="radio" name="gps_type"> GPS Phone
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                            for="message">Keterangan</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <textarea id="message" rows="6" class="form-control" name="description"
+                                                data-parsley-trigger="keyup" data-parsley-minlength="10"
+                                                data-parsley-maxlength="100"
+                                                data-parsley-minlength-message="Come on! You need to enter at least a 10 caracters long comment.."
+                                                data-parsley-validation-threshold="10"></textarea>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <div id="type_space" class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Space Iklan</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <select class="form-control" id="select_type_space" name="type_space">
+                                                <option value="full_back_window">Back Window</option>
+                                                <option value="full_back_body">Full Back Window</option>
+                                                <option value="full_half_body">Full Half Body</option>
+                                                <option value="half_body">Half Body</option>
+                                                <option value="full_body">Full Body</option>
+                                            </select>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Contoh Space
+                                            Iklan</label>
+                                        <img id="image_space" class="image_type_space"
+                                            style="margin-left: 10px; height: 150px; width: 190px;"
+                                            src="static/assets/build/images/full_back_window.jpg" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Durasi</label>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="1" id="duration_1" name="duration"
+                                                        onclick="showOption(1);"> 1 Bulan
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="3" id="duration_3" name="duration"
+                                                        onclick="showOption(3);"> 3 Bulan
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="3" id="duration_6" name="duration"
+                                                        onclick="showOption(6);"> 6 Bulan
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"></label>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="3" id="duration_9" name="duration"
+                                                        onclick="showOption(9);"> 9 Bulan
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="3" id="duration_12" name="duration"
+                                                        onclick="showOption(12);"> 12 Bulan
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <br>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                    <div class="ln_solid"></div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-4 col-xs-12">Domisili
+                                            Kendaraan</label>
+                                        <div class="col-md-9 col-sm-8 col-xs-12">
+                                            <input type="text" name="domisili" class="input_place form-control"
+                                                placeholder="Mohon Isi Domisili Kendaraan">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-4 col-xs-12">Jumlah
+                                            Kendaraan</label>
+                                        <div class="col-md-9 col-sm-8 col-xs-12">
+                                            <input type="number" id="number_vehicle" name="number_vehicle"
+                                                required="required" class="input_place form-control" style="width: 100%"
+                                                placeholder="Mohon Isi Jumlah Kendaraan">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <div id="model_kendaraan" class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Model Kendaraan</label>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="avanza" id="avanza" name="avanza">
+                                                    Avanza
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="xenia" id="xenia" name="xenia">
+                                                    Xenia
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="calya" id="calya" name="calya">
+                                                    Calya
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"></label>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="siegra" id="siegra" name="siegra">
+                                                    Siegra
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input id="lainnya" type="checkbox">Lainnya<input type="text"
+                                                        id="input_lainnya" class="hidden form-control">
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-4 col-xs-12"
+                                            for="instal_address">Contoh Gambar</label>
+                                        <div class="col-md-9 col-sm-8 col-xs-12">
+                                            <input type="file" name="pic" id="image-source"
+                                                onchange="previewImage_picture();">
+                                            <br>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <br>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"></label>
+                                        <img id="image-preview-picture" alt="image preview" />
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <button type="button" onclick="validasi()" class="btn btn-success">Submit</button>
+
+
+                                </form>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                // hidden class space iklan
+                var pictureList = [
+                    "static/assets/build/images/full_back_window.jpg",
+                    "static/assets/build/images/full_back_body.jpg",
+                    "static/assets/build/images/full_half_body.jpg",
+                    "static/assets/build/images/half_body.jpg",
+                    "static/assets/build/images/back_body.jpg",
+                ];
+
+                $('#lainnya').change(function () {
+                    if ($(this).is(":checked")) {
+                        $("#input_lainnya").removeClass("hidden")
+                    } else {
+                        $("#input_lainnya").addClass("hidden")
+                    }
+
+                });
+
+                // placeholder animasi
+                var milliseconds = 8000;
+
+                function writePlaceholder(field, text, i) {
+                    if (i < (text.length)) {
+                        $(field).attr("placeholder", text.substring(0, i + 1));
+                        i++;
+                        setTimeout(function () {
+                            writePlaceholder(field, text, i)
+                        }, 50);
+                    }
+                }
+
+                function init() {
+                    $(".input_place").each(function () {
+                        let placeholder = $(this).attr("placeholder");
+                        writePlaceholder($(this), placeholder, 0);
+
+                    });
+
+                    setInterval(function () {
+                        init()
+                    }, milliseconds);
+                }
+
+                init();
+
+                // change image with value in type space
+                $('#type_space').change(function () {
+                    var val = $('#select_type_space').val();
+                    $('.image_type_space').attr("src", "static/assets/build/images/" + val + ".jpg");
+                });
+
+                //check condition after using radio mobil and motor
+                function changeVehicleType(el) {
+                    if (el == "motor") {
+                        $("#type_space").addClass("hidden")
+                        $("#model_kendaraan").addClass("hidden")
+                        // model_kendaraan
+                        $("#image_space").attr('src', 'static/assets/build/images/sample_motor.jpg');
+                    }
+                    if (el == "mobil") {
+                        $("#type_space").removeClass("hidden")
+                        $("#image_space").attr('src', 'static/assets/build/images/full_back_window.jpg');
+                    }
+                }
+
+                //validasi for number mobile phone
+                function validasi() {
+                    var nomor_hp = document.getElementById("no_tlepon").value;
+                    var number = /^[0-9]+$/;
+                    if (!nomor_hp.match(number)) {
+                        alert("Nomor Handphone harus angka !");
+                        return false;
+                    };
+
+                    if (nomor_hp.length != 12) {
+                        alert("Nomor Handphone Harus 12 Digit");
+                        return false;
+                    };
+                }
+            </script>
+
+            <script type="text/javascript">
+                //preview image choose file
+                function previewImage_picture() {
+                    document.getElementById("image-preview-picture").style.display = "block";
+                    var oFReader = new FileReader();
+                    oFReader.readAsDataURL(document.getElementById("image-source").files[0]);
+
+                    oFReader.onload = function (oFREvent) {
+                        document.getElementById("image-preview-picture").src = oFREvent.target.result;
+                    };
+                };
+            </script>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                <a>Copyright &copy; <script type="text/javascript">
+                        document.write(new Date().getFullYear());
+                    </script> ABPluss.</a>
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="static/assets/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="static/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="static/assets/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="static/assets/vendors/nprogress/nprogress.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="static/assets/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="static/assets/vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="static/assets/vendors/skycons/skycons.js"></script>
+    <!-- jQuery custom content scroller -->
+    <script src="static/assets/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js">
+    </script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="static/assets/vendors/moment/min/moment.min.js"></script>
+    <!-- bootstrap-datetimepicker -->
+    <script src="static/assets/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <!-- validator -->
+    <script src="static/assets/vendors/validator/validator.js"></script>
+    <!-- Parsley -->
+    <script src="static/assets/vendors/parsleyjs/dist/parsley.min.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="static/assets/build/js/custom.min.js"></script>
+    <!-- maskmoney -->
+    <script src="static/assets/mask_money/dist/jquery.maskMoney.js"></script>
+    <script src="static/assets/mask_money/dist/jquery.maskMoney.min.js"></script>
+
+    <!-- table role management -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            setTimeout(function () {
+                $('body').addClass('loaded');
+                $(".preloader").fadeIn();
+            }, 10);
+        });
+    </script>
+
+    <script type='text/javascript'>
+        $(document).ready(function () {
+            $("#selectall_payment").click(function () {
+                $(".first").prop("checked", $("#selectall_payment").prop("checked"))
+            });
+
+            $("#selectall_loyality").click(function () {
+                $(".second").prop("checked", $("#selectall_loyality").prop("checked"))
+            });
+
+            $("#selectall_md").click(function () {
+                $(".third").prop("checked", $("#selectall_md").prop("checked"))
+            });
+
+            $("#selectall_regis").click(function () {
+                $(".four").prop("checked", $("#selectall_regis").prop("checked"))
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $('#pub_start').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+        $('#pub_end').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+        $('#ins_start').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+        $('#ins_end').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+        $('#cam_start').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+        $('#cam_end').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+        $('#start_search').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+        $('#end_search').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+        $('#detail_driver').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+    </script>
+</body>
+
+</html>
